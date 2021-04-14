@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './../../../appForYossi/src/app/components/Home/home/home.component'
+import { HomeComponent } from './components/Home/home.component'
 
 @NgModule({
   declarations: [
