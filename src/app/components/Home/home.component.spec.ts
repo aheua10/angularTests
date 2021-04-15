@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 
 
 
-import { HomeComponent } from './home.component;
+import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -48,12 +48,34 @@ describe('HomeComponent', () => {
     expect(fixture.componentInstance.botNumber).toBeGreaterThan(0);
     expect(fixture.componentInstance.csPlayers.length).toBe(5);
   })
-  fit('Should add another player to the list', () => {
+  it('Should add another player to the list', () => {
     fixture = TestBed.createComponent(HomeComponent);
-    const res = fixture.debugElement.nativeElement.querySelector('button');
-    res.click();
+    const addBotButton = fixture.debugElement.nativeElement.querySelector('button');
+    addBotButton.click();
     fixture.detectChanges();
     const addedBot = fixture.debugElement.queryAll(By.css('div'));
     expect(addedBot[4].nativeNode.innerText).toBe('Bot 1');
+  
   });
+  it('Should Remove last bot from the list', ()=> {
+    fixture = TestBed.createComponent(HomeComponent);
+    const addBotButton = fixture.debugElement.nativeElement.querySelector('button');
+    addBotButton.click()
+    fixture.detectChanges();
+    const removeBotButton = fixture.debugElement.childNodes[8];
+    removeBotButton.nativeNode.click();
+    fixture.detectChanges();
+    expect (fixture.componentInstance.csPlayers.length).toBe(4)
+  })
+  fit('Should remove last bot and update bot number', ()=>{
+    fixture = TestBed.createComponent(HomeComponent);
+    fixture.componentInstance.addBot()
+    fixture.componentInstance.addBot()
+    fixture.detectChanges()
+    fixture.componentInstance.removeBot()
+    fixture.detectChanges()
+    const newBotNumber = fixture.componentInstance.botNumber
+    expect (newBotNumber).toBe(1)
+    expect (fixture.componentInstance.csPlayers.length).toBe(5)
+  })
 });

@@ -23,4 +23,13 @@ addBot() {
   addNumber()
   this.csPlayers.push(`${this.botName} ${this.botNumber}`)
 }
+removeBot() {
+  const i = this.csPlayers.length 
+    if (i > 4) {
+      this.csPlayers.pop()
+      this.botNumber --
+    }else {
+      return 
+    }
+  }
 }
