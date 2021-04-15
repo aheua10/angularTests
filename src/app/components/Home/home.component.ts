@@ -8,28 +8,33 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   public csPlayers:string[] = ['popik' , 'yossi' , 'yagel' , 'helfgod' ]
+  public newCsPlayers:string[] = [''] 
+  public createdBots:string[] = ['']
   public botName:string = 'Bot'
   public botNumber:number = 0
-
+  public newCsPlayer:string = ''
 
   constructor() { }
 
   ngOnInit(): void {
   }
-addBot() {
+  addBot() {
   const addNumber = () => {
     this.botNumber ++
   };
   addNumber()
-  this.csPlayers.push(`${this.botName} ${this.botNumber}`)
-}
-removeBot() {
-  const i = this.csPlayers.length 
-    if (i > 4) {
-      this.csPlayers.pop()
-      this.botNumber --
-    }else {
-      return 
-    }
+  this.createdBots.push(`${this.botName} ${this.botNumber}`)
   }
+  removeBot() {
+  this.createdBots.pop()
+  this.botNumber--
+  }
+addNewPlayer () {
+  this.newCsPlayers.push(this.newCsPlayer)
+  this.newCsPlayer=''
 }
+removePlayer () {
+  this.newCsPlayers.pop()
+}
+}
+
