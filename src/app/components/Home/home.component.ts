@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   public csPlayers:string[] = ['popik' , 'yossi' , 'yagel' , 'helfgod' ]
-  public newCsPlayers:string[] = [''] 
-  public createdBots:string[] = ['']
+  public newCsPlayers:string[] = [] 
+  public createdBots:string[] = []
   public botName:string = 'Bot'
   public botNumber:number = 0
   public newCsPlayer:string = ''
@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   }
   removeBot() {
   this.createdBots.pop()
+  if (this.botNumber > 0)
   this.botNumber--
   }
 addNewPlayer () {

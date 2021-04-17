@@ -28,7 +28,6 @@ describe('HomeComponent', () => {
 
   it('should return h1 as Shai', ()=> {
     const htmlElements = fixture.debugElement.queryAll(By.css('h1'));
-    console.log('html Element >>>' , htmlElements)
     expect(htmlElements[0].nativeNode.innerText).toContain('Shai')
   })
 
@@ -46,7 +45,7 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
     fixture.componentInstance.addBot()
     expect(fixture.componentInstance.botNumber).toBeGreaterThan(0);
-    expect(fixture.componentInstance.csPlayers.length).toBe(5);
+    expect(fixture.componentInstance.createdBots.length).toBeGreaterThan(0);
   })
   it('Should add another player to the list', () => {
     fixture = TestBed.createComponent(HomeComponent);
@@ -67,15 +66,23 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
     expect (fixture.componentInstance.csPlayers.length).toBe(4)
   })
-  fit('Should remove last bot and update bot number', ()=>{
+  it('Should remove last bot and update bot number', ()=>{
     fixture = TestBed.createComponent(HomeComponent);
     fixture.componentInstance.addBot()
     fixture.componentInstance.addBot()
     fixture.detectChanges()
     fixture.componentInstance.removeBot()
     fixture.detectChanges()
-    const newBotNumber = fixture.componentInstance.botNumber
-    expect (newBotNumber).toBe(1)
-    expect (fixture.componentInstance.csPlayers.length).toBe(5)
+    const howManyBotsAreConnected = fixture.componentInstance.createdBots
+    expect (howManyBotsAreConnected.length).toBe(1)
   })
+  it('Should Remove new player and not remove other players' , () => {
+    fixture=TestBed.createComponent(HomeComponent);
+    fixture.componentInstance.newCsPlayers.push('Test');
+    const removePlayerButton = fixture.debugElement.nativeNode.querySelector('.remove-player-button');
+    removePlayerButton.click();
+    fixture.detectChanges();
+    expect (fixture.componentInstance.newCsPlayers.length).toBe(0);
+  })
+  
 });

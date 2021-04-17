@@ -1,14 +1,14 @@
 <h1 class="title">Shai</h1>
-<form (submit)="addNewPlayer()" >
+<form (submit)="addNewPlayer()">
     <input type="text"
     name = "inputCsPlayer"
     placeholder="Enter Player Name ..."
     [(ngModel)]="newCsPlayer" />
-    <input type="submit" value="Add Player">
+    <input type="submit" value="Add Player" class="add-player-button">
 </form>
-<button (click)='addBot()'>Add bot</button>
-<button (click)='removeBot()'>Remove Bot</button>
-<button (click)='removePlayer()'>Remove Player</button>
-<div *ngFor='let csPlayer of csPlayers'>{{ csPlayer }}</div>
-<div *ngFor='let newCsPlayer of newCsPlayers'>{{ newCsPlayer }}</div>
-<div *ngFor='let newBot of createdBots'>{{newBot}}</div>
+<button (click)='addBot()' class="add-bot-button">Add bot</button>
+<button (click)='removeBot()' class="remove-bot-button">Remove Bot</button>
+<button (click)='removePlayer()' class="remove-player-button">Remove Player</button>
+<div *ngFor='let csPlayer of csPlayers' class="cs-players-list">{{ csPlayer }}</div>
+<div *ngFor='let newCsPlayer of newCsPlayers' class="added-cs-player-list">{{ newCsPlayer }}</div>
+<div *ngFor='let newBot of createdBots' class="added-bot-list">{{newBot}}</div>
