@@ -3,7 +3,7 @@
     <input type="text"
     name = "inputCsPlayer"
     placeholder="Enter Player Name ..."
-    [(ngModel)]="newCsPlayer" />
+    [(ngModel)]="newCsPlayer"/>
     <input type="submit" value="Add Player" class="add-player-button">
 </form>
 <button (click)='addBot()' class="add-bot-button">Add bot</button>
@@ -12,3 +12,7 @@
 <div *ngFor='let csPlayer of csPlayers' class="cs-players-list">{{ csPlayer }}</div>
 <div *ngFor='let newCsPlayer of newCsPlayers' class="added-cs-player-list">{{ newCsPlayer }}</div>
 <div *ngFor='let newBot of createdBots' class="added-bot-list">{{newBot}}</div>
+<div>
+    <h1>Contact Me</h1>
+    <app-contact-form></app-contact-form>
+</div>
