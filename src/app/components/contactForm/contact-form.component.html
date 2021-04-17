@@ -1,0 +1,16 @@
+<form>
+    <div>
+        <input type="text" placeholder="First Name" [(ngModel)]='inputName' name="firstName">
+        <div *ngIf=''></div>
+    </div>
+    <div>
+        <input type="text" placeholder="Last Name" [(ngModel)]='inputLastName' name="lastName">
+    </div>
+    <div>
+        <input type="number" placeholder="Phone Number" [(ngModel)]='inputPhoneNumber' name="phoneNumber">
+    </div>
+    <div>
+        <input type="text" placeholder="Email" [(ngModel)]="inputEmail" name="email">
+    </div>
+    <button (click)='addUser()'>Press Me</button>
+</form>
