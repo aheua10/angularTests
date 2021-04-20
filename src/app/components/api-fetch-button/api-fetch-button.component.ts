@@ -9,18 +9,9 @@ import { ApiServiceService } from '../api-service.service';
 
 export class ApiFetchButtonComponent {
   public data = []
-  public testData = []
-
   constructor(private apiService:ApiServiceService) {}
 
-  ngOnInit(): void {}
-
-  async getUserInfo() {
-      return this.apiService.getData().then((response):any => {
-      console.log('response >>>> ' , response)
-      this.data.push(response)
-      this.testData.push(response)
-      return response
-    })
+  public async getUserInfo(): Promise<void> {
+    this.data.push(await this.apiService.getData());
   }
 }
