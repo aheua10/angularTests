@@ -1,11 +1,6 @@
 <h1 class="title">Shai</h1>
-<form (submit)="addNewPlayer()">
-    <input type="text"
-    name = "inputCsPlayer"
-    placeholder="Enter Player Name ..."
-    [(ngModel)]="newCsPlayer"/>
-    <input type="submit" value="Add Player" class="add-player-button">
-</form>
+<input type="text" name = "inputCsPlayer" id='inputNewCsPlayer' placeholder="Enter Player Name ..." [(ngModel)]="newCsPlayer" class="add-player-input" value="{{ newCsPlayer }} "/>
+<button (click)="addNewPlayer()" value="Add Player" class="add-player-button">Add player</button>
 <button (click)='addBot()' class="add-bot-button">Add bot</button>
 <button (click)='removeBot()' class="remove-bot-button">Remove Bot</button>
 <button (click)='removePlayer()' class="remove-player-button">Remove Player</button>
@@ -15,4 +10,7 @@
 <div>
     <h1>Contact Me</h1>
     <app-contact-form></app-contact-form>
+</div>
+<div>
+    <app-api-fetch-button></app-api-fetch-button> 
 </div>

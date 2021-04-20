@@ -1,16 +1,15 @@
-<form>
+<form (submit)="clickButton()" (submit)="buttonClicks()">
     <div>
-        <input type="text" placeholder="First Name" [(ngModel)]='inputName' name="firstName">
-        <div *ngIf=''></div>
+        <input type="text" placeholder="First Name" [(ngModel)]='inputName' name="firstName" required value="{{inputName}}">
     </div>
     <div>
-        <input type="text" placeholder="Last Name" [(ngModel)]='inputLastName' name="lastName">
+        <input type="text" placeholder="Last Name" [(ngModel)]='inputLastName' name="lastName" required>
     </div>
     <div>
-        <input type="number" placeholder="Phone Number" [(ngModel)]='inputPhoneNumber' name="phoneNumber">
+        <input type="number" placeholder="Phone Number" [(ngModel)]='inputPhoneNumber' name="phoneNumber" required>
     </div>
     <div>
-        <input type="text" placeholder="Email" [(ngModel)]="inputEmail" name="email">
+        <input type="text" placeholder="Email" [(ngModel)]="inputEmail" name="email" required>
     </div>
-    <button (click)='addUser()'>Press Me</button>
+    <button type="submit" class="submit-button-form" (click)="clickButton()"> Submit</button>
 </form>

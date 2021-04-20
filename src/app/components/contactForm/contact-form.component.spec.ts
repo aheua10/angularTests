@@ -1,4 +1,6 @@
+import { expressionType } from '@angular/compiler/src/output/output_ast';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { ContactFormComponent } from './contact-form.component';
 
@@ -22,9 +24,23 @@ describe('ContactFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-fit('Should Store User info as an object' , () => {
-  fixture = TestBed.createComponent(ContactFormComponent)
-  fixture.detectChanges();
-  debugger
-})
+//   fit('Should Not store more then one object' , () => {
+//     fixture = TestBed.createComponent(ContactFormComponent);
+//     const submitButton = fixture.debugElement.nativeNode.querySelector('.submit-button-form')
+//     fixture.componentInstance.inputName = 'SHAI';
+//     fixture.componentInstance.inputLastName = 'ELIYAHU';
+//     fixture.componentInstance.inputPhoneNumber = 0;
+//     fixture.componentInstance.inputEmail = 'aheua10@gmail.com';
+//     fixture.detectChanges();
+//     submitButton.click()
+//     fixture.componentInstance.inputName = 'SHAI';
+//     fixture.componentInstance.inputLastName = 'ELIYAHU';
+//     fixture.componentInstance.inputPhoneNumber = 0;
+//     fixture.componentInstance.inputEmail = 'aheua10@gmail.com';
+//     fixture.detectChanges();
+//     submitButton.click();
+//     fixture.detectChanges();
+//     expect(fixture.componentInstance.submitButtonAlert).toBe('Cant Press More Then Once');
+// })
+
 });

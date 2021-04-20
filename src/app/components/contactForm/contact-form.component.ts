@@ -15,8 +15,9 @@ export class ContactFormComponent implements OnInit {
   public inputLastName:string = null;
   public inputPhoneNumber:number = null;
   public inputEmail:string = null;
-  public addFullName = `${this.inputName} ${this.inputLastName}`;
   public userList = [] ;
+  public numberTimesClicked:number = 0
+  public submitButtonAlert:string = null
 
   constructor() { }
 
@@ -34,6 +35,16 @@ export class ContactFormComponent implements OnInit {
     this.inputPhoneNumber = null;
     this.inputEmail = '';
     console.log(this.userList)
+    
   }
-
+  buttonClicks(){
+    this.numberTimesClicked++
+  }
+  clickButton() {
+    if (this.numberTimesClicked < 1 ){
+    this.addUser()} else {
+      this.submitButtonAlert = 'Cant Press More Then Once';
+      return this.submitButtonAlert
+    }
+  }
 }
